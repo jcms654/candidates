@@ -1,0 +1,58 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Cargar Nuevo Candidato</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p class="required-legend">Los campos marcados con un (*) son obligatorios.</p>
+
+    <form [formGroup]="candidateForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-grid-layout">
+        <mat-form-field appearance="fill" class="grid-item">
+          <mat-label>Nombre</mat-label> <!-- Asegúrate de que el asterisco esté aquí -->
+          <input matInput formControlName="name" required />
+          @if (candidateForm.get('name')?.hasError('required') && candidateForm.get('name')?.touched) {
+            <mat-error>
+              El nombre es requerido
+            </mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="grid-item">
+          <mat-label>Apellido</mat-label> 
+          <input matInput formControlName="surname" required />
+          @if (candidateForm.get('surname')?.hasError('required') && candidateForm.get('surname')?.touched) {
+            <mat-error>
+              El apellido es requerido
+            </mat-error>
+          }
+        </mat-form-field>
+
+        <div class="file-input-section grid-item">
+          <input type="file" #fileInput (change)="onFileSelected($event)" accept=".xlsx, .xls" style="display: none;" required />
+
+          <button mat-raised-button color="accent" type="button" (click)="fileInput.click()"
+                  [disabled]="!candidateForm.get('name')?.valid || !candidateForm.get('surname')?.valid">
+            Seleccionar archivo Excel con los datos del candidato
+          </button>
+
+          @if (selectedFile) {
+            <p class="file-name-display">Archivo seleccionado: {{ selectedFile.name }}</p>
+          }
+          
+          @if (candidateForm.get('file')?.hasError('required') && candidateForm.get('file')?.touched) {
+            <mat-error>
+              Se requiere un archivo Excel
+            </mat-error>
+          }
+        </div>
+      </div>
+
+      <button mat-raised-button color="primary" type="submit"
+              [disabled]="!candidateForm.valid || !selectedFile">
+        Cargar Candidato
+      </button>
+
+    </form>
+  </mat-card-content>
+</mat-card>

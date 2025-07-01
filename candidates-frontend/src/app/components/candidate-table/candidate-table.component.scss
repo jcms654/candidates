@@ -1,0 +1,56 @@
+.candidates-table-card {
+  height: 400px; 
+  overflow: hidden; 
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card-title {
+  font-size: 1.5em;
+  color: #444;
+  text-align: center;
+}
+
+.candidates-table-card mat-card-content {
+  flex-grow: 1; 
+  overflow: auto; 
+  padding: 0; 
+  height: 400px;
+}
+
+.mat-elevation-z8 {
+  height: 100%; 
+  display: flex;
+  flex-direction: column;
+}
+
+table {
+  width: 100%; 
+}
+
+mat-paginator {
+  flex-shrink: 0; 
+  border-top: 1px solid #e0e0e0; 
+  padding: 8px 0; 
+}
+.mat-elevation-z8 > div { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; 
+  text-align: center;
+  color: gray;
+  padding: 16px; 
+}
+
+
+.mat-column-name,
+.mat-column-surname,
+.mat-column-seniority,
+.mat-column-years {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+

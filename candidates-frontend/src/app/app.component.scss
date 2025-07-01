@@ -1,0 +1,40 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+  padding: 20px;
+  margin: 20px auto; 
+  align-items: center; 
+}
+
+app-candidate-form {
+  width: 100%;
+  .mat-card {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+app-candidate-table {
+  width: 100%;
+  .mat-card {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.mat-elevation-z8 {
+  width: 100%;
+  overflow-x: auto; 
+}
+
+table {
+  width: 100%;
+}
+
+.mat-column-availability {
+  text-align: center;
+  mat-icon {
+    vertical-align: middle;
+  }
+}

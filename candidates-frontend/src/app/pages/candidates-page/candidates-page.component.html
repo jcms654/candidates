@@ -1,0 +1,7 @@
+<div class="candidates-page-container">
+  <h2>Gestión de Candidatos</h2>
+  <app-candidate-form (candidatesUpdated)="onCandidatesUpdated($event)"></app-candidate-form>
+  <app-candidate-table [candidates]="allCandidates"></app-candidate-table>
+</div>
+
+
